@@ -72,7 +72,7 @@ console.log(' 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kin
 
 function lygineSuma (param1, param2) {
 
-    if (typeof param1 === Number && typeof param2 === Number) {
+    if (typeof param1 === 'number' && typeof param2 === 'number') {
         const sumOfParam =  param1 + param2;
         if (sumOfParam % 2 === 0) {
             return sumOfParam;
