@@ -66,7 +66,9 @@ for (let index = 0; index < 100; index++) {
     }
     
 }
+console.log("     ");
 console.log(objectOccurencies);
+console.log("     ");
 
 console.log(' 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kintamieji. Testų reikalavimai - abu kitamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas). Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą. Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų)')
 
@@ -91,16 +93,59 @@ function lygineSuma (param1, param2) {
         return "abu kitamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas)";
     }
     
-
-
 }
 
 console.log();
-
+console.log("     ");
 console.log(lygineSuma(1, 2));
 console.log(lygineSuma([1, 2], [3, 4]));
 console.log(lygineSuma(1, [1, 2]));
+console.log("     ");
 
 console.log(' 9. Parašyti funkciją pirminisSkaicius. Funkcija turi vieną kintamąjį. Turi būti patikrinimas, kad kintamasis yra skaičius. Funkcija turi grąžinti ar pateiktas skaičius yra pirminis( pirminis. skaičius yra tas, kuris dalinasi tik iš savęs ir tik iš vieneto be liekanos.) (10 taškų)')
 
+function pirminisSkaicius1(num) { 
+    if(typeof num !== 'number') {
+        return `${num} nėra skaičius`;
+    }
+    if (num <= 1 )  {
+        return `Skaičius ${num} nėra pirminis skaičius`;
+    }
+    if (num % 2 === 0 && num > 2) {
+        return `Skaičius ${num} nėra pirminis skaičius`;
+    }
+    const s = Math.sqrt(num);
+    for(let i = 3; i <= s; i += 2) { 
+        if(num % i === 0) {
+            return `Skaičius ${num} nėra pirminis skaičius`; 
+        } 
+    }
+    return `Skaičius ${num} yra pirminis skaičius`; ;
+  }
+  console.log("     ");
+  console.log(pirminisSkaicius1(5));
+  console.log("     ");
+
+
 console.log(' 10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - "(XXX) XXX-XXXX". (10 taškų)')
+
+
+function telefonoNumeris (numbers) {
+    let firstpart = ""
+    let secondpart = ""
+    let thirdpart = ""
+    for (var i = 0; i < numbers.length; i++) {
+        if (i < 3) {
+            firstpart += numbers[i].toString();
+        } else if (i >= 3 && i < 6) {
+            secondpart += numbers[i].toString();
+        } else if (i >= 6) {
+            thirdpart += numbers[i].toString();
+        }
+    }
+    return `(${firstpart}) ${secondpart}-${thirdpart}`;
+}    
+
+console.log("     ");
+console.log(telefonoNumeris([1, 5, 6, 3, 7, 4, 8, 5, 5, 0]));
+console.log("     ");
